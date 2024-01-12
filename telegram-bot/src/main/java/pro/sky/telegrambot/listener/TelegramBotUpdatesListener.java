@@ -37,14 +37,15 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
         telegramBot.setUpdatesListener(this);
     }
 
-    @Override  //
+    @Override
     public int process(List<Update> updates) {
         updates.forEach(update -> {
             logger.info("Processing update: {}", update);
             Long chatId = update.message().chat().id();
             if (update.message().text().equals("/start")) {
-                SendMessage message = new SendMessage(chatId, "02.01.2024 20:00 Сделать домашнюю работу");
-                SendResponse response = telegramBot.execute(message);
+                SendMessage message = new SendMessage(chatId, "07.01.2024 20:00 Сделать домашнюю работу");
+                telegramBot.execute(message);
+
             }
             Pattern pattern = Pattern.compile("([0-9\\.\\:\\s]{16})(\\s)([\\W+]+)");
             Matcher matcher = pattern.matcher(update.message().text());

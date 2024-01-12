@@ -7,8 +7,8 @@ import java.util.Objects;
 @Entity
 public class NotificationTask {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue
+    private Long id = 0L;
     @Column(name = "chat_id")
     private Long chatId;
     @Column(name = "content_notification")
