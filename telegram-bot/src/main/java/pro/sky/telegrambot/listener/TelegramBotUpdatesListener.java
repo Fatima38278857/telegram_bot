@@ -55,7 +55,7 @@ public class TelegramBotUpdatesListener implements UpdatesListener {
             if (matcher.matches()) {
                 date = matcher.group(1);
                 item = matcher.group(3);
-                logger.info("Date: {}, item: {}", date, item);
+                 logger.info("Date: {}, item: {}", date, item);
             }
 
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm");

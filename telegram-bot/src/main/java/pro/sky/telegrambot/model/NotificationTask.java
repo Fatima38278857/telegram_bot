@@ -16,6 +16,7 @@ public class NotificationTask {
     @Column(name = "date_time_notification")
     private LocalDateTime dateTimeNotification;
 
+
     public NotificationTask(Long chatId, String contentNotification, LocalDateTime dateTimeNotification) {
         this.chatId = chatId;
         this.contentNotification = contentNotification;
