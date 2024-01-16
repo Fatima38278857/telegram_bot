@@ -2,6 +2,7 @@ package pro.sky.telegrambot.service;
 
 import com.pengrad.telegrambot.TelegramBot;
 import com.pengrad.telegrambot.request.SendMessage;
+import com.pengrad.telegrambot.response.SendResponse;
 import org.springframework.stereotype.Service;
 import pro.sky.telegrambot.repository.NotificationTaskRepository;
 
@@ -22,9 +23,8 @@ public class NotificationService {
 
 
     public void notification() {
-//        findAllByExecDate(LocalDateTime
-//                .now().truncatedTo(ChronoUnit.MINUTES)).
-        notificationTaskRepository.findAll().forEach(notificationTask -> {
+        notificationTaskRepository.findAllByDateTimeNotification(LocalDateTime
+                .now().truncatedTo(ChronoUnit.MINUTES)).forEach(notificationTask -> {
             SendMessage message = new SendMessage(notificationTask.getChatId(), notificationTask.getContentNotification());
             telegramBot.execute(message);
         });
